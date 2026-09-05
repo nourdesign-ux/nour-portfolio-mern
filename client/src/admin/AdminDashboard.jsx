@@ -10,7 +10,9 @@ export default function AdminDashboard(){
   const [message,setMessage]=useState("");
 
   const load=()=>api("/projects?all=1").then(setProjects).catch(e=>setMessage(e.message));
-  useEffect(load,[]);
+  useEffect(() => {
+  load();
+}, []);
 
   async function save(e){
     e.preventDefault();
