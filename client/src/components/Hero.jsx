@@ -4,7 +4,7 @@ export default function Hero() {
       <HeaderOverlay />
       <div className="hero-copy">
         <div className="eyebrow">BRANDING / ART DIRECTION / DIGITAL</div>
-        <h1><span>Hello.</span><strong>I’m Nour</strong><span>Mastouri.</span></h1>
+        <h1><span>Hello.</span><strong>I’m Nourrr</strong><span>Mastouri.</span></h1>
         <p className="role">SENIOR GRAPHIC DESIGNER / ART DIRECTOR</p>
         <p className="intro">I build visual identities, campaigns and digital experiences that make brands clearer, bolder and more memorable.</p>
         <div className="hero-actions">
