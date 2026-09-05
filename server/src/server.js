@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from "url";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/auth.js";
 import projectRoutes from "./routes/projects.js";
@@ -10,10 +11,12 @@ import mediaRoutes from "./routes/media.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
+const uploadDir = path.resolve(currentDir, "../uploads");
 
 app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
 app.use(express.json({ limit: "2mb" }));
-app.use("/uploads", express.static(path.resolve("uploads")));
+app.use("/uploads", express.static(uploadDir));
 
 app.get("/api/health", (_req, res) => res.json({ ok: true, stack: "MERN" }));
 app.use("/api/auth", authRoutes);

@@ -12,7 +12,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Portfolio />} />
       <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin" element={<Protected><AdminDashboard /></Protected>} />
+      <Route path="/admin/*" element={<Protected><AdminDashboard /></Protected>} />
     </Routes>
   );
 }

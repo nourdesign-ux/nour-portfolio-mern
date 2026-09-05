@@ -13,7 +13,8 @@ const projectSchema = new mongoose.Schema({
   featured: { type: Boolean, default: false },
   sortOrder: { type: Number, default: 0 },
   seoTitle: { type: String, default: "" },
-  seoDescription: { type: String, default: "" }
+  seoDescription: { type: String, default: "" },
+  deletedAt: { type: Date, default: null, index: true }
 }, { timestamps: true });
 
 export default mongoose.model("Project", projectSchema);

@@ -1,10 +1,13 @@
+import { usePage } from "../api/usePage.js";
+
 export default function Contact() {
+  const page = usePage("contact", { title: "LET’S MAKE\nSOMETHING\nMEMORABLE.", eyebrow: "04 — CONTACT", body: "Available for selected freelance, branding and art direction projects.", ctaLabel: "START A PROJECT ↗", ctaUrl: "mailto:hello@nourmastouri.com" });
   return (
     <section className="contact section" id="contact">
-      <div className="section-label">04 — CONTACT</div>
-      <h2>LET’S MAKE<br/>SOMETHING<br/><i>MEMORABLE.</i></h2>
-      <p>Available for selected freelance, branding and art direction projects.</p>
-      <a href="mailto:hello@nourmastouri.com">START A PROJECT ↗</a>
+      <div className="section-label">{page.eyebrow || "04 — CONTACT"}</div>
+      <h2>{page.title || "LET’S MAKE\nSOMETHING\nMEMORABLE."}</h2>
+      <p>{page.body}</p>
+      <a href={page.ctaUrl || "mailto:hello@nourmastouri.com"}>{page.ctaLabel || "START A PROJECT ↗"}</a>
     </section>
   );
 }

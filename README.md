@@ -1,4 +1,4 @@
-# Nour Mastouri Portfolio — MERN V1
+# Nour Mastouri Portfolio — MERN CMS
 
 Migration V1 du portfolio vers MongoDB + Express + React + Node.js.
 
@@ -8,6 +8,14 @@ Migration V1 du portfolio vers MongoDB + Express + React + Node.js.
 - Auth admin — JWT
 - Projects / Pages — MongoDB
 - Media — upload local en développement + metadata MongoDB
+
+## CMS admin
+- Overview alimenté par les vraies collections MongoDB
+- Projects : tous les champs du modèle, recherche, filtres, actions groupées, brouillon/publication et corbeille avec restauration
+- Pages : édition limitée aux enregistrements existants, SEO contextuel et autosave
+- Media : médiathèque, drag & drop, upload, texte alternatif et suppression confirmée
+- États de chargement, erreurs, vues vides, notifications et modales accessibles
+- Navigation responsive et recherche au clavier (`Ctrl/Cmd + K`)
 
 ## 1. Installer
 À la racine :
@@ -46,15 +54,19 @@ Admin : http://localhost:5173/admin/login
 - `POST /api/auth/login`
 - `GET /api/projects`
 - `GET /api/projects?all=1`
+- `GET /api/projects?trash=1`
 - `POST /api/projects`
 - `PUT /api/projects/:id`
 - `DELETE /api/projects/:id`
+- `POST /api/projects/:id/restore`
 - `GET /api/pages`
 - `PUT /api/pages/:key`
 - `GET/POST/PUT/DELETE /api/media`
 
-## Notes V1
+Les vues `?all=1` et `?trash=1`, ainsi que toutes les mutations, nécessitent le JWT admin.
+
+## Notes
 - Le Hero reprend la direction actuelle : photo existante dominante, crop uniquement en bas, zéro génération d'image.
 - Les 8 projets existants sont seedés dans MongoDB.
 - Ajouter un projet dans l'admin le fait apparaître automatiquement dans `Selected Work`.
-- Le stockage media est local en V1 de développement. Pour production, on pourra brancher Cloudinary/S3.
+- Le stockage media reste local et réel dans `server/uploads`. Aucun comportement cloud fictif n'est exposé.

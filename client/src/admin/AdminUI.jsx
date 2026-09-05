@@ -1,0 +1,72 @@
+import { useEffect, useRef } from "react";
+
+export function Icon({ name, size = 18 }) {
+  const paths = {
+    dashboard: <><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></>,
+    projects: <><path d="M4 7h16M7 4v6M17 4v6"/><rect x="3" y="6" width="18" height="15" rx="2"/></>,
+    pages: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></>,
+    media: <><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></>,
+    search: <><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></>,
+    plus: <path d="M12 5v14M5 12h14"/>,
+    close: <path d="m6 6 12 12M18 6 6 18"/>,
+    menu: <path d="M4 7h16M4 12h16M4 17h16"/>,
+    more: <><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></>,
+    upload: <><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/></>,
+    logout: <><path d="M10 17l5-5-5-5M15 12H3"/><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/></>,
+    external: <><path d="M14 3h7v7M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></>,
+    edit: <><path d="m14 4 6 6L8 22H2v-6z"/><path d="m12 6 6 6"/></>,
+    trash: <><path d="M3 6h18M8 6V3h8v3M6 6l1 15h10l1-15"/><path d="M10 11v6M14 11v6"/></>,
+    restore: <><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></>,
+    check: <path d="m5 12 4 4L19 6"/>,
+    warning: <><path d="M12 3 2 21h20z"/><path d="M12 9v5M12 18h.01"/></>
+  };
+  return <svg className="admin-icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
+}
+
+export function Modal({ title, eyebrow, children, onClose, wide = false }) {
+  const closeRef = useRef(null);
+  useEffect(() => {
+    const previous = document.activeElement;
+    closeRef.current?.focus();
+    const onKey = event => event.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.classList.add("admin-modal-open");
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.classList.remove("admin-modal-open");
+      previous?.focus?.();
+    };
+  }, [onClose]);
+
+  return <div className="modal-backdrop" role="presentation" onMouseDown={event => event.target === event.currentTarget && onClose()}>
+    <section className={`admin-modal ${wide ? "admin-modal-wide" : ""}`} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header>
+        <div><span>{eyebrow}</span><h2 id="modal-title">{title}</h2></div>
+        <button ref={closeRef} className="icon-button" onClick={onClose} aria-label="Fermer"><Icon name="close" /></button>
+      </header>
+      {children}
+    </section>
+  </div>;
+}
+
+export function ConfirmModal({ title, message, confirmLabel = "Confirmer", tone = "danger", onConfirm, onClose, busy }) {
+  return <Modal title={title} eyebrow="CONFIRMATION" onClose={onClose}>
+    <div className="confirm-body"><Icon name="warning" size={26}/><p>{message}</p></div>
+    <footer className="modal-actions">
+      <button className="button secondary" onClick={onClose} disabled={busy}>Annuler</button>
+      <button className={`button ${tone}`} onClick={onConfirm} disabled={busy}>{busy ? "Traitement…" : confirmLabel}</button>
+    </footer>
+  </Modal>;
+}
+
+export function SkeletonRows({ count = 5 }) {
+  return <div className="skeleton-list" aria-label="Chargement">{Array.from({ length: count }, (_, index) => <div className="skeleton-row" key={index}><i/><span/><b/></div>)}</div>;
+}
+
+export function EmptyState({ icon = "projects", title, text, action }) {
+  return <div className="empty-state"><Icon name={icon} size={30}/><h3>{title}</h3><p>{text}</p>{action}</div>;
+}
+
+export function StatusBadge({ status }) {
+  return <span className={`status-badge ${status}`}>{status === "published" ? "Publié" : "Brouillon"}</span>;
+}

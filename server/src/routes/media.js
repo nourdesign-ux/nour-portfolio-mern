@@ -2,11 +2,13 @@ import { Router } from "express";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 import Media from "../models/Media.js";
 import { requireAuth } from "../middleware/auth.js";
 
 const router = Router();
-const uploadDir = path.resolve("uploads");
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
+const uploadDir = path.resolve(currentDir, "../../uploads");
 fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
@@ -43,6 +45,7 @@ router.post("/", requireAuth, upload.single("file"), async (req, res) => {
 
 router.put("/:id", requireAuth, async (req, res) => {
   const item = await Media.findByIdAndUpdate(req.params.id, { alt: req.body.alt || "" }, { new: true });
+  if (!item) return res.status(404).json({ message: "Media introuvable" });
   res.json(item);
 });
 

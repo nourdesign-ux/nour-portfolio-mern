@@ -16,8 +16,9 @@ router.put("/:key", requireAuth, async (req, res) => {
   const page = await Page.findOneAndUpdate(
     { key: req.params.key },
     { ...req.body, key: req.params.key },
-    { new: true, upsert: true, runValidators: true }
+    { new: true, runValidators: true }
   );
+  if (!page) return res.status(404).json({ message: "Page introuvable" });
   res.json(page);
 });
 
