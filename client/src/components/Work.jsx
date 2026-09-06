@@ -78,12 +78,13 @@ export default function Work() {
   useEffect(() => {
     api("/projects").then(data => {
       if (!data?.length) return;
-      const curatedProjects = [behanceProject, wineProject, sportsAcademyProject];
-      const incoming = [
-        ...curatedProjects,
-        ...data.filter(project => !curatedProjects.some(curated => project.slug === curated.slug || project.title === curated.title))
+      // Keep the three original case studies visible while an older API process
+      // is still running; the server migration persists the same records in DB.
+      const featured = [behanceProject, wineProject, sportsAcademyProject];
+      const merged = [
+        ...featured.map(original => data.find(item => item.slug === original.slug) || original),
+        ...data.filter(item => !featured.some(original => original.slug === item.slug))
       ];
-      const merged = [...incoming, ...fallback.slice(curatedProjects.length)].filter((project, index, list) => list.findIndex(item => item.title === project.title) === index);
       setProjects(merged.slice(0, 18));
     }).catch(() => {});
   }, []);

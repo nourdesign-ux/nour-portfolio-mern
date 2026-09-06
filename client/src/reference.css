@@ -1130,9 +1130,10 @@ button:disabled{opacity:.42;cursor:not-allowed}
   .hero-ref__portrait img { transform: scale(1.06) !important; }
 }
 
-/* Shared page container: the complete portfolio stays off the viewport edges. */
+/* Site container: preserve the previous centered, non-full-width presentation. */
 .site-header.site-header--reference,
-.hero.hero--reference {
+.portfolio-section-bg > section,
+.footer {
   width: min(1580px, calc(100% - 44px));
   margin-left: auto;
   margin-right: auto;
@@ -1143,29 +1144,25 @@ button:disabled{opacity:.42;cursor:not-allowed}
   right: 0;
 }
 
-main > section:not(.hero),
+.portfolio-section-bg > section,
 .footer {
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
   overflow: hidden;
 }
 
-main > .section-pad,
-.experience-statement,
-.footer {
-  padding-left: max(var(--pad), calc((100vw - 1480px) / 2));
-  padding-right: max(var(--pad), calc((100vw - 1480px) / 2));
-}
+.portfolio-section-bg,
+.portfolio-footer-bg { width: 100%; }
+.portfolio-section-bg--paper { background: var(--paper); }
+.portfolio-section-bg--soft { background: #f2f2ee; }
+.portfolio-section-bg--gray { background: #d9d8d2; }
+.portfolio-section-bg--dark,
+.portfolio-footer-bg { background: #111; }
 
 @media (max-width: 900px) {
   .site-header.site-header--reference,
-  .hero.hero--reference {
+  .portfolio-section-bg > section,
+  .footer {
     width: calc(100% - 16px);
   }
-
-  main > section:not(.hero),
-  .footer { width: 100%; }
 }
 
 /* Stable header action and footer layout. */

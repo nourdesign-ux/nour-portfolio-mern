@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "seed": "node src/seed.js"
+    "dev": "nodemon --exec \"node --use-system-ca\" src/server.js",
+    "start": "node --use-system-ca src/server.js",
+    "seed": "node src/seed.js",
+    "restore:featured-projects": "node src/migrations/restoreFeaturedProjects.js",
+    "restore:featured-projects:api": "node src/migrations/restoreFeaturedProjectsViaApi.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

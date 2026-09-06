@@ -23,7 +23,7 @@ const upload = multer({
   storage,
   limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
-    const ok = ["image/jpeg","image/png","image/webp","image/gif","image/svg+xml"].includes(file.mimetype);
+    const ok = ["image/jpeg","image/png","image/webp","image/gif"].includes(file.mimetype);
     cb(ok ? null : new Error("Type de fichier non supporté"), ok);
   }
 });
@@ -79,9 +79,12 @@ router.put("/:id", requireAuth, async (req, res) => {
 router.post("/:id/replace", requireAuth, upload.single("file"), async (req, res) => {
   if (!req.file) return res.status(400).json({ message: "Fichier requis" });
   const item = await Media.findById(req.params.id);
-  if (!item) return res.status(404).json({ message: "Media introuvable" });
+  if (!item) {
+    try { fs.unlinkSync(req.file.path); } catch {}
+    return res.status(404).json({ message: "Media introuvable" });
+  }
   if (item.url.startsWith("/uploads/")) {
-    try { fs.unlinkSync(path.join(uploadDir, item.filename)); } catch {}
+    try { fs.unlinkSync(path.join(uploadDir, path.basename(item.filename))); } catch {}
   }
   item.filename = req.file.filename;
   item.originalName = req.file.originalname;
@@ -95,7 +98,9 @@ router.post("/:id/replace", requireAuth, upload.single("file"), async (req, res)
 router.delete("/:id", requireAuth, async (req, res) => {
   const item = await Media.findByIdAndDelete(req.params.id);
   if (!item) return res.status(404).json({ message: "Media introuvable" });
-  try { fs.unlinkSync(path.join(uploadDir, item.filename)); } catch {}
+  if (item.url.startsWith("/uploads/")) {
+    try { fs.unlinkSync(path.join(uploadDir, path.basename(item.filename))); } catch {}
+  }
   res.json({ ok: true });
 });
 

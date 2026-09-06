@@ -13,7 +13,8 @@ export function usePage(key, fallback) {
         if (active) {
           const localized = Object.fromEntries(Object.entries(data.translations?.[language] || {}).filter(([, value]) => value !== "" && value !== null && value !== undefined));
           const legacy = language === "en" ? data : {};
-          setPage(current => ({ ...current, ...legacy, ...localized, key: data.key }));
+          const shared = Object.fromEntries(["key", "blocks", "status", "heroImage", "ctaUrl", "metaTitle", "metaDescription", "keywords", "socialImage", "canonicalUrl", "robots", "editorSettings"].filter(field => Object.hasOwn(data, field)).map(field => [field, data[field]]));
+          setPage(current => ({ ...current, ...legacy, ...localized, ...shared }));
         }
       } catch {
         // Public sections keep their current content when the API is unavailable.

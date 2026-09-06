@@ -7,11 +7,27 @@ import PagesView from "./PagesView.jsx";
 import ProjectsView from "./ProjectsView.jsx";
 import AdminSettingsView from "./AdminSettingsView.jsx";
 import AdminHeaderView from "./AdminHeaderView.jsx";
+import SavedBlocksView from "./SavedBlocksView.jsx";
+import AdminFooterView from "./AdminFooterView.jsx";
+import AdminProfileView from "./AdminProfileView.jsx";
+import AdminMenuView from "./AdminMenuView.jsx";
+import AdminToolsView from "./AdminToolsView.jsx";
+import SectionsView from "./SectionsView.jsx";
+import AdminSeoView from "./AdminSeoView.jsx";
+import FormsView from "./FormsView.jsx";
+import WidgetsView from "./WidgetsView.jsx";
+import SiteHealthView from "./SiteHealthView.jsx";
+import AdminCookiesView from "./AdminCookiesView.jsx";
+import SiteModeView, { SiteStatusView } from "./SiteModeView.jsx";
 import { formatDate } from "./adminUtils.js";
+import "./admin-pro.css";
 
 const navigation = [
   { to: "/admin", end: true, icon: "dashboard", label: "Dashboard", group: "Workspace" },
   { to: "/admin/pages", icon: "pages", label: "Pages", group: "Content" },
+  { to: "/admin/sections", icon: "builder", label: "Sections", group: "Content" },
+  { to: "/admin/forms", icon: "pages", label: "Forms", group: "Content" },
+  { to: "/admin/widgets", icon: "builder", label: "Widgets", group: "Content" },
   { to: "/admin/projects", icon: "projects", label: "Projects", group: "Content" },
   { to: "/admin/media", icon: "media", label: "Media Library", group: "Content" },
   { to: "/admin/appearance", icon: "builder", label: "Appearance", group: "Design" },
@@ -19,7 +35,12 @@ const navigation = [
   { to: "/admin/navigation", icon: "menu-lines", label: "Menus", group: "Design" },
   { to: "/admin/footer", icon: "footer", label: "Footer", group: "Design" },
   { to: "/admin/seo", icon: "search", label: "SEO", group: "Design" },
+  { to: "/admin/cookies", icon: "archive", label: "Cookies", group: "Design" },
   { to: "/admin/tools", icon: "archive", label: "Tools & Backup", group: "System" },
+  { to: "/admin/health", icon: "warning", label: "Site Health", group: "System" },
+  { to: "/admin/site-status", icon: "warning", label: "Site Status", group: "System" },
+  { to: "/admin/coming-soon", icon: "pages", label: "Coming Soon", group: "System" },
+  { to: "/admin/maintenance", icon: "warning", label: "Maintenance", group: "System" },
   { to: "/admin/profile", icon: "profile", label: "Profile", group: "System" }
 ];
 
@@ -29,7 +50,8 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [toasts, setToasts] = useState([]);
-  const [counts, setCounts] = useState({ projects: 0, pages: 0, media: 0 });
+  const [counts, setCounts] = useState({ projects: 0, pages: 0, sections: 0, forms: 0, widgets: 0, media: 0 });
+  const [siteStatus, setSiteStatus] = useState("online");
 
   const current = useMemo(() => navigation.find(item => item.end ? location.pathname === item.to : location.pathname.startsWith(item.to)) || navigation[0], [location.pathname]);
   const notify = useCallback((message, type = "success") => {
@@ -42,7 +64,10 @@ export default function AdminDashboard() {
   useEffect(() => {
     setSearch("");
     setMenuOpen(false);
+    window.requestAnimationFrame(() => document.querySelector(".cms-sidebar a.active")?.scrollIntoView({ block: "nearest", behavior: "smooth" }));
   }, [location.pathname]);
+
+  useEffect(() => { const refresh = () => api("/settings").then(data => setSiteStatus(data.siteStatus || "online")).catch(() => {}); void refresh(); const timer = window.setInterval(refresh, 3000); const update = event => setSiteStatus(event.detail); window.addEventListener("nour:site-status", update); return () => { window.clearInterval(timer); window.removeEventListener("nour:site-status", update); }; }, []);
 
   useEffect(() => {
     const onUnauthorized = () => navigate("/admin/login", { replace: true });
@@ -70,19 +95,19 @@ export default function AdminDashboard() {
     <header className="wp-adminbar">
       <button className="mobile-menu icon-button" onClick={() => setMenuOpen(true)} aria-label="Ouvrir le menu"><Icon name="menu"/></button>
       <a className="wp-adminbar-brand" href="/admin"><b>NOUR.</b><span>CMS</span></a>
-      <div className="wp-adminbar-center"><span className="wp-status-dot"/> Production workspace</div>
+      <div className={`wp-adminbar-center site-${siteStatus}`}><span className="wp-status-dot"/> {siteStatus === "online" ? "Site Online" : siteStatus === "coming-soon" ? "Coming Soon Active" : "Maintenance Mode Active"}</div>
       <div className="wp-adminbar-actions"><a href="/" target="_blank" rel="noreferrer"><Icon name="external"/> View site</a><button title="Notifications"><span className="wp-notification-dot"/> Updates</button><button className="wp-user-menu" onClick={logout}><span className="admin-avatar">NM</span><span>Nour Mastouri</span><Icon name="chevron"/></button></div>
     </header>
     <aside className={`cms-sidebar ${menuOpen ? "open" : ""}`}>
       <div className="sidebar-workspace"><span>Workspace</span><b>Nour Portfolio</b><small>Production environment</small></div>
-      <nav aria-label="CMS navigation">{["Workspace", "Content", "Design", "System"].map(group => <div className="sidebar-nav-group" key={group}><span className="sidebar-nav-label">{group}</span>{navigation.filter(item => item.group === group).map(item => <NavLink key={item.to} to={item.to} end={item.end} className={({isActive}) => isActive ? "active" : ""}><Icon name={item.icon}/><span>{item.label}</span>{["Pages", "Projects", "Media Library"].includes(item.label) && <small>{counts[item.label === "Media Library" ? "media" : item.label.toLowerCase()] || ""}</small>}</NavLink>)}</div>)}</nav>
+      <nav aria-label="CMS navigation">{["Workspace", "Content", "Design", "System"].map(group => <div className="sidebar-nav-group" key={group}><span className="sidebar-nav-label">{group}</span>{navigation.filter(item => item.group === group).map(item => <NavLink key={item.to} to={item.to} end={item.end} className={({isActive}) => isActive ? "active" : ""}><Icon name={item.icon}/><span>{item.label}</span>{["Pages", "Sections", "Projects", "Forms", "Widgets", "Media Library"].includes(item.label) && <small>{counts[item.label === "Media Library" ? "media" : item.label.toLowerCase()] || ""}</small>}</NavLink>)}</div>)}</nav>
       <div className="sidebar-bottom"><a href="/" target="_blank" rel="noreferrer"><Icon name="external"/><span>View live site</span></a><button onClick={logout}><Icon name="logout"/><span>Sign out</span></button></div>
     </aside>
     {menuOpen && <button className="sidebar-scrim" aria-label="Fermer le menu" onClick={() => setMenuOpen(false)}/>}
     <div className="cms-workspace">
       <header className="cms-topbar">
         <div className="breadcrumbs"><span>CMS</span><i>/</i><b>{current.label}</b></div>
-        {current.label === "Overview" ? <span/> : <label className="cms-search"><Icon name="search"/><input value={search} onChange={event => setSearch(event.target.value)} placeholder={`Rechercher dans ${current.label.toLowerCase()}…`} aria-label="Rechercher"/><kbd>⌘ K</kbd></label>}
+        {current.label === "Dashboard" ? <span/> : <label className="cms-search"><Icon name="search"/><input value={search} onChange={event => setSearch(event.target.value)} placeholder={`Rechercher dans ${current.label.toLowerCase()}…`} aria-label="Rechercher"/><kbd>⌘ K</kbd></label>}
         <div className="topbar-actions"><a className="topbar-view-site" href="/" target="_blank" rel="noreferrer"><Icon name="external"/> View site</a><div className="admin-avatar">NM</div></div>
       </header>
       <main className="cms-main">
@@ -90,14 +115,23 @@ export default function AdminDashboard() {
           <Route index element={<Overview onCountsChange={updateCounts}/>} />
           <Route path="projects" element={<ProjectsView search={search} notify={notify} onCountsChange={updateCounts}/>} />
           <Route path="pages" element={<PagesView search={search} notify={notify} onCountsChange={updateCounts}/>} />
+          <Route path="sections" element={<SectionsView search={search} notify={notify} onCountsChange={updateCounts}/>} />
+          <Route path="forms" element={<FormsView search={search} notify={notify} onCountsChange={updateCounts}/>} />
+          <Route path="widgets" element={<WidgetsView search={search} notify={notify} onCountsChange={updateCounts}/>} />
           <Route path="media" element={<MediaView search={search} notify={notify} onCountsChange={updateCounts}/>} />
+          <Route path="saved-blocks" element={<SavedBlocksView search={search} notify={notify}/>} />
           <Route path="appearance" element={<AdminSettingsView section="appearance" notify={notify}/>} />
           <Route path="header" element={<AdminHeaderView notify={notify}/>} />
-          <Route path="navigation" element={<AdminSettingsView section="navigation" notify={notify}/>} />
-          <Route path="footer" element={<AdminSettingsView section="footer" notify={notify}/>} />
-          <Route path="seo" element={<AdminSettingsView section="seo" notify={notify}/>} />
-          <Route path="tools" element={<AdminSettingsView section="tools" notify={notify}/>} />
-          <Route path="profile" element={<AdminSettingsView section="profile" notify={notify}/>} />
+          <Route path="navigation" element={<AdminMenuView notify={notify}/>} />
+          <Route path="footer" element={<AdminFooterView notify={notify}/>} />
+          <Route path="seo" element={<AdminSeoView notify={notify}/>} />
+          <Route path="cookies" element={<AdminCookiesView notify={notify}/>} />
+          <Route path="tools" element={<AdminToolsView notify={notify}/>} />
+          <Route path="health" element={<SiteHealthView notify={notify} onCountsChange={updateCounts}/>} />
+          <Route path="site-status" element={<SiteStatusView notify={notify}/>} />
+          <Route path="coming-soon" element={<SiteModeView type="comingSoon" notify={notify}/>} />
+          <Route path="maintenance" element={<SiteModeView type="maintenance" notify={notify}/>} />
+          <Route path="profile" element={<AdminProfileView notify={notify}/>} />
           <Route path="*" element={<EmptyState icon="warning" title="Vue introuvable" text="Cette vue n’existe pas dans le CMS." action={<button className="button secondary" onClick={() => navigate("/admin")}>Retour à l’overview</button>}/>} />
         </Routes>
       </main>
@@ -116,9 +150,10 @@ function Overview({ onCountsChange }) {
   const load = async () => {
     setLoading(true); setError("");
     try {
-      const [projects, pages, media] = await Promise.all([api("/projects?all=1"), api("/pages"), api("/media")]);
+      const [projects, onePage, media] = await Promise.all([api("/projects?all=1"), api("/pages/one-page"), api("/media")]);
+      const pages = [onePage];
       setData({ projects, pages, media });
-      onCountsChange({ projects: projects.length, pages: pages.length, media: media.length });
+      onCountsChange({ projects: projects.length, pages: 1, media: media.length });
     } catch (requestError) { setError(requestError.message); }
     finally { setLoading(false); }
   };

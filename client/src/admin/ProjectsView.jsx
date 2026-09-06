@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { api, mediaUrl } from "../api/client.js";
 import { ConfirmModal, EmptyState, Icon, Modal, SkeletonRows, StatusBadge } from "./AdminUI.jsx";
 import { emptyProject, formatDate, slugify } from "./adminUtils.js";
+import { confirmAction } from "./confirmAction.js";
 
 function normalizeProject(project = emptyProject) {
   return {
@@ -93,6 +94,21 @@ export default function ProjectsView({ search, notify, onCountsChange }) {
     }
   }
 
+  async function duplicate(project) {
+    try {
+      await api(`/projects/${project._id}/duplicate`, { method: "POST" });
+      notify(`“${project.title}” dupliqué en brouillon`);
+      await load();
+    } catch (requestError) { notify(requestError.message, "error"); }
+  }
+
+  async function purge(project) {
+    try { await api(`/projects/${project._id}/permanent`, { method: "DELETE" }); notify("Projet supprimé définitivement"); await load(); }
+    catch (requestError) { notify(requestError.message, "error"); }
+  }
+
+  if (editor) return <ProjectEditor project={editor} notify={notify} onClose={() => setEditor(null)} onSaved={async () => { setEditor(null); await load(); }}/>;
+
   return <>
     <div className="view-heading">
       <div><span className="admin-kicker">CONTENT / PROJECTS</span><h1>Projects</h1><p>Gérez les projets qui alimentent directement Selected Work.</p></div>
@@ -132,8 +148,9 @@ export default function ProjectsView({ search, notify, onCountsChange }) {
             <span className="mono">{project.sortOrder}</span>
             <span>{formatDate(project.updatedAt)}</span>
             <div className="row-actions">
-              {status === "trash" ? <button className="icon-button" title="Restaurer" onClick={() => void restore(project)}><Icon name="restore"/></button> : <>
+              {status === "trash" ? <><button className="icon-button" title="Restaurer" onClick={() => void restore(project)}><Icon name="restore"/></button><button className="icon-button danger-icon" title="Supprimer définitivement" onClick={() => setConfirm({ purge: project })}><Icon name="trash"/></button></> : <>
                 <button className="icon-button" title="Modifier" onClick={() => setEditor(normalizeProject(project))}><Icon name="edit"/></button>
+                <button className="icon-button" title="Dupliquer" onClick={() => void duplicate(project)}><Icon name="restore"/></button>
                 <button className="icon-button danger-icon" title="Supprimer" onClick={() => setConfirm({ project })}><Icon name="trash"/></button>
               </>}
             </div>
@@ -141,9 +158,16 @@ export default function ProjectsView({ search, notify, onCountsChange }) {
         </div>}
     </section>
 
-    {editor && <ProjectEditor project={editor} notify={notify} onClose={() => setEditor(null)} onSaved={async () => { setEditor(null); await load(); }}/>}
     {confirm?.project && <ConfirmModal title="Supprimer le projet ?" message={`“${confirm.project.title}” sera déplacé dans la corbeille et retiré du site public.`} confirmLabel="Déplacer dans la corbeille" busy={busy} onClose={() => setConfirm(null)} onConfirm={() => void remove(confirm.project)}/>}
     {confirm?.bulk && <ConfirmModal title="Supprimer la sélection ?" message={`${selected.length} projet${selected.length > 1 ? "s seront déplacés" : " sera déplacé"} dans la corbeille.`} confirmLabel="Supprimer" busy={busy} onClose={() => setConfirm(null)} onConfirm={() => void runBulk("delete")}/>}
+    {confirm?.purge && <ConfirmModal
+      title="Supprimer définitivement ?"
+      message={`« ${confirm.purge.title} » sera supprimé sans possibilité de restauration.`}
+      confirmLabel="Supprimer définitivement"
+      busy={busy}
+      onClose={() => setConfirm(null)}
+      onConfirm={async () => { await purge(confirm.purge); setConfirm(null); }}
+    />}
   </>;
 }
 
@@ -154,6 +178,7 @@ function ProjectEditor({ project, notify, onClose, onSaved }) {
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState(isNew);
   const [slugTouched, setSlugTouched] = useState(!isNew);
+  const [mode, setMode] = useState("classic");
 
   useEffect(() => {
     const loadMedia = async () => {
@@ -197,18 +222,27 @@ function ProjectEditor({ project, notify, onClose, onSaved }) {
     }
   }
 
-  function requestClose() {
-    if (!dirty || window.confirm("Fermer sans enregistrer les modifications ?")) onClose();
+  async function requestClose() {
+    if (!dirty || await confirmAction({
+      title: "Fermer l’éditeur ?",
+      message: "Les modifications non enregistrées de ce projet seront perdues.",
+      confirmLabel: "Fermer sans enregistrer"
+    })) onClose();
   }
 
-  return <Modal title={isNew ? "Nouveau projet" : form.title} eyebrow={dirty ? "MODIFICATIONS NON ENREGISTRÉES" : "PROJECT EDITOR"} onClose={requestClose} wide>
-    <form className="editor-form" onSubmit={event => void save(event)}>
+  return <div className="project-editor-screen"><header className="page-editor-header"><button className="button secondary" onClick={requestClose}><Icon name="arrow-left"/> Retour aux projets</button><div><span className="admin-kicker">PROJECT / {dirty ? "NON ENREGISTRÉ" : "ENREGISTRÉ"}</span><h1>{isNew ? "Nouveau projet" : form.title}</h1></div><div className="editor-mode-switch compact"><button className={mode === "classic" ? "active" : ""} onClick={() => setMode("classic")}><Icon name="edit"/> Classic</button><button className={mode === "visual" ? "active" : ""} onClick={() => setMode("visual")}><Icon name="builder"/> Visual Canvas</button></div></header>
+    {mode === "visual" && <div className="project-visual-workspace"><ProjectCanvas form={form} update={update}/><div className="project-canvas-actions"><span className={`editor-save-pill ${saving ? "saving" : dirty ? "pending" : "saved"}`}>{saving ? "Sauvegarde…" : dirty ? "Non enregistré" : "Enregistré"}</span><button className="button primary" disabled={saving || !dirty} onClick={() => void save()}>{saving ? "Sauvegarde…" : "Enregistrer le projet"}</button></div></div>}
+    {mode === "classic" && <form className="editor-form" onSubmit={event => void save(event)}>
       <div className="editor-main">
         <section className="form-section">
           <div className="field wide-field"><label htmlFor="project-title">Titre</label><input id="project-title" value={form.title} onChange={event => updateTitle(event.target.value)} required autoFocus/></div>
           <div className="field"><label htmlFor="project-slug">Slug</label><input id="project-slug" value={form.slug} onChange={event => { setSlugTouched(true); update("slug", slugify(event.target.value)); }} required/><small>URL unique du projet</small></div>
           <div className="field"><label htmlFor="project-category">Catégorie</label><input id="project-category" value={form.category} onChange={event => update("category", event.target.value)}/></div>
           <div className="field full"><label htmlFor="project-description">Description</label><textarea id="project-description" rows="6" value={form.description} onChange={event => update("description", event.target.value)}/></div>
+          <div className="field full"><label htmlFor="project-concept-title">Titre — The Work</label><input id="project-concept-title" value={form.conceptTitle || ""} onChange={event => update("conceptTitle", event.target.value)}/></div>
+          <div className="field full"><label htmlFor="project-concept">Contenu — The Work</label><textarea id="project-concept" rows="5" value={form.concept || ""} onChange={event => update("concept", event.target.value)}/></div>
+          <div className="field"><label htmlFor="project-role">Rôle</label><textarea id="project-role" rows="3" value={form.role || ""} onChange={event => update("role", event.target.value)}/></div>
+          <div className="field"><label htmlFor="project-behance">Lien Behance</label><input id="project-behance" type="url" value={form.behanceUrl || ""} onChange={event => update("behanceUrl", event.target.value)}/></div>
           <div className="field full"><label htmlFor="project-services">Services</label><textarea id="project-services" rows="4" value={form.services.join("\n")} onChange={event => update("services", event.target.value.split("\n").map(item => item.trim()).filter(Boolean))}/><small>Un service par ligne</small></div>
         </section>
 
@@ -240,6 +274,11 @@ function ProjectEditor({ project, notify, onClose, onSaved }) {
         </section>
         {!isNew && form.status === "published" && <a className="preview-link" href="/#work" target="_blank" rel="noreferrer"><Icon name="external"/> Voir dans Selected Work</a>}
       </aside>
-    </form>
-  </Modal>;
+    </form>}
+  </div>;
+}
+
+function ProjectCanvas({ form, update }) {
+  const images = [form.cover, ...(form.images || [])].filter(Boolean);
+  return <section className="project-visual-builder"><aside><b>PROJECT LAYERS</b>{["Hero", "Overview", "Gallery", "Story", "CTA"].map((label,index)=><button className={index===0?"active":""} key={label}><span>↳</span>{label}</button>)}</aside><div className="project-fixed-canvas"><div className="project-canvas-page"><span className="micro">CASE STUDY / VISUAL CANVAS</span><h2 contentEditable suppressContentEditableWarning onBlur={event=>update("title",event.currentTarget.textContent)}>{form.title || "PROJECT TITLE"}</h2><div className="project-canvas-cover">{images[0]?<img src={mediaUrl(images[0])} alt="Cover"/>:<strong>SELECT A COVER</strong>}</div><section><span className="micro">OVERVIEW</span><p contentEditable suppressContentEditableWarning onBlur={event=>update("description",event.currentTarget.textContent)}>{form.description || "Project description"}</p></section><div className="project-canvas-gallery">{images.slice(1,4).map((image,index)=><img src={mediaUrl(image)} alt={`Gallery ${index+1}`} key={image}/>)}</div></div></div><aside className="project-canvas-inspector"><b>SELECTED / HERO</b><label className="field"><span>Titre</span><input value={form.title} onChange={event=>update("title",event.target.value)}/></label><label className="field"><span>Cover URL</span><input value={form.cover} onChange={event=>update("cover",event.target.value)}/></label><label className="field"><span>Description</span><textarea rows="6" value={form.description} onChange={event=>update("description",event.target.value)}/></label></aside></section>;
 }

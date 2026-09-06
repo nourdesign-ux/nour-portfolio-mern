@@ -35,7 +35,7 @@ export default function ProjectModal({ project, index, slug, onClose }) {
 
       <section className="case-overview">
         <div><span className="micro">OVERVIEW</span><p>{description}</p></div>
-        <dl><div><dt>YEAR</dt><dd>{project.year}</dd></div><div><dt>ROLE</dt><dd>ART DIRECTION<br />DESIGN</dd></div><div><dt>SERVICES</dt><dd>{services.map(service => <span key={service}>{service}</span>)}</dd></div></dl>
+        <dl><div><dt>YEAR</dt><dd>{project.year}</dd></div><div><dt>ROLE</dt><dd>{String(project.role || "ART DIRECTION\nDESIGN").split("\n").map((line,lineIndex)=><span key={`${line}-${lineIndex}`}>{line}{lineIndex<String(project.role || "ART DIRECTION\nDESIGN").split("\n").length-1&&<br/>}</span>)}</dd></div><div><dt>SERVICES</dt><dd>{services.map(service => <span key={service}>{service}</span>)}</dd></div></dl>
       </section>
 
       <section className="case-gallery">

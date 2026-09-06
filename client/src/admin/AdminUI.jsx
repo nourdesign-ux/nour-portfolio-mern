@@ -37,7 +37,18 @@ export function Modal({ title, eyebrow, children, onClose, wide = false }) {
   useEffect(() => {
     const previous = document.activeElement;
     closeRef.current?.focus();
-    const onKey = event => event.key === "Escape" && onClose();
+    const onKey = event => {
+      if (event.key === "Escape") onClose();
+      if (event.key === "Tab") {
+        const dialog = closeRef.current?.closest('[role="dialog"]');
+        const focusable = [...(dialog?.querySelectorAll('button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])') || [])];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
     document.addEventListener("keydown", onKey);
     document.body.classList.add("admin-modal-open");
     return () => {
@@ -77,5 +88,7 @@ export function EmptyState({ icon = "projects", title, text, action }) {
 }
 
 export function StatusBadge({ status }) {
-  return <span className={`status-badge ${status}`}>{status === "published" ? "Publié" : "Brouillon"}</span>;
+  const labels = { published: "Publié", draft: "Brouillon", active: "Actif", inactive: "Inactif", archived: "Archivé", global: "Global", local: "Local", scheduled: "Planifié" };
+  const normalized = status || "draft";
+  return <span className={`status-badge ${normalized}`}>{labels[normalized] || normalized}</span>;
 }

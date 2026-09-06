@@ -6,7 +6,10 @@ export function requireAuth(req, res, next) {
   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
   try {
-    req.user = jwt.verify(token, process.env.JWT_SECRET);
+    if (!process.env.JWT_SECRET) {
+      return res.status(503).json({ message: "Authentification non configurée" });
+    }
+    req.user = jwt.verify(token, process.env.JWT_SECRET, { algorithms: ["HS256"] });
     next();
   } catch {
     res.status(401).json({ message: "Invalid or expired token" });

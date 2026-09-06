@@ -6,7 +6,18 @@ export async function api(path, options = {}) {
   if (!(options.body instanceof FormData)) headers["Content-Type"] = "application/json";
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 15000);
+  let res;
+  try {
+    const signal = options.signal && AbortSignal.any ? AbortSignal.any([options.signal, controller.signal]) : (options.signal || controller.signal);
+    res = await fetch(`${API_URL}${path}`, { ...options, headers, signal });
+  } catch (error) {
+    if (error.name === "AbortError") throw new Error("La requête a expiré. Vérifiez la connexion au serveur.");
+    throw new Error("API indisponible. Vérifiez que le serveur est démarré.");
+  } finally {
+    window.clearTimeout(timeout);
+  }
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
     if (res.status === 401 && path !== "/auth/login") {
