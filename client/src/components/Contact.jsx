@@ -1,13 +1,8 @@
-import { usePage } from "../api/usePage.js";
-
 export default function Contact() {
-  const page = usePage("contact", { title: "LET’S MAKE\nSOMETHING\nMEMORABLE.", eyebrow: "04 — CONTACT", body: "Available for selected freelance, branding and art direction projects.", ctaLabel: "START A PROJECT ↗", ctaUrl: "mailto:hello@nourmastouri.com" });
-  return (
-    <section className="contact section" id="contact">
-      <div className="section-label">{page.eyebrow || "04 — CONTACT"}</div>
-      <h2>{page.title || "LET’S MAKE\nSOMETHING\nMEMORABLE."}</h2>
-      <p>{page.body}</p>
-      <a href={page.ctaUrl || "mailto:hello@nourmastouri.com"}>{page.ctaLabel || "START A PROJECT ↗"}</a>
-    </section>
-  );
+  return <section className="contact section-pad" id="contact">
+    <div className="contact__meta micro"><span>06 / CONTACT</span><span>AVAILABLE FOR SELECTED PROJECTS</span></div>
+    <h2>HAVE A VISION?<br /><em>LET’S MAKE</em><br />IT REAL.</h2>
+    <a className="contact__cta" href="mailto:hello@nourmastouri.com"><span>START A PROJECT</span><i>↗</i></a>
+    <div className="contact__links"><a href="https://www.linkedin.com/in/nour-mastouri" target="_blank" rel="noreferrer">LINKEDIN ↗</a><a href="https://www.behance.net/nourmastouri" target="_blank" rel="noreferrer">BEHANCE ↗</a><a href="https://www.instagram.com/nourmastouri" target="_blank" rel="noreferrer">INSTAGRAM ↗</a></div>
+  </section>;
 }

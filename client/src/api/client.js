@@ -21,6 +21,6 @@ export async function api(path, options = {}) {
 }
 
 export function mediaUrl(url = "") {
-  if (!url || /^https?:\/\//i.test(url)) return url;
+  if (!url || /^https?:\/\//i.test(url) || url.startsWith("/assets/")) return url;
   return `${API_URL.replace(/\/api\/?$/, "")}${url}`;
 }

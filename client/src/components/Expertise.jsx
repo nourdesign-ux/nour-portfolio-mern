@@ -1,13 +1,7 @@
-import { usePage } from "../api/usePage.js";
-
-const items = ["BRAND STRATEGY","VISUAL IDENTITY","ART DIRECTION","PACKAGING","SOCIAL MEDIA","PRINT & OOH","DIGITAL / UI","CAMPAIGN SYSTEMS"];
+const items = [["BRAND IDENTITY","Strategy · Systems · Guidelines"],["ART DIRECTION","Concept · Campaign · Content"],["SOCIAL MEDIA","Creative systems · Launches"],["PACKAGING","Product · Label · Range"],["PRINT DESIGN","Editorial · OOH · Production"],["DIGITAL / UI","Web · Interfaces · Motion"]];
 export default function Expertise() {
-  const page = usePage("expertise", { title: "EXPERTISE", eyebrow: "", body: "" });
-  const managedItems = page.body ? page.body.split(/[·\n]/).map(item => item.trim()).filter(Boolean) : items;
-  return (
-    <section className="expertise section" id="expertise">
-      <div className="section-label">{page.eyebrow || `03 — ${page.title || "EXPERTISE"}`}</div>
-      <div className="expert-list">{managedItems.map((x,i)=><div key={x}><span>{String(i+1).padStart(2,"0")}</span><b>{x}</b><em>↗</em></div>)}</div>
-    </section>
-  );
+  return <section className="expertise section-pad" id="expertise">
+    <div className="section-head section-head--dark"><p className="micro">04 / EXPERTISE</p><h2>One vision. Every touchpoint.</h2></div>
+    <ol className="expertise__list">{items.map(([name, detail], i) => <li key={name}><span>{String(i + 1).padStart(2,"0")}</span><strong>{name}</strong><em>{detail}</em><i>↗</i></li>)}</ol>
+  </section>;
 }

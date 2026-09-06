@@ -8,6 +8,8 @@ import authRoutes from "./routes/auth.js";
 import projectRoutes from "./routes/projects.js";
 import pageRoutes from "./routes/pages.js";
 import mediaRoutes from "./routes/media.js";
+import settingsRoutes from "./routes/settings.js";
+import backupRoutes from "./routes/backup.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,6 +25,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/pages", pageRoutes);
 app.use("/api/media", mediaRoutes);
+app.use("/api/settings", settingsRoutes);
+app.use("/api/backup", backupRoutes);
 
 app.use((err, _req, res, _next) => {
   console.error(err);

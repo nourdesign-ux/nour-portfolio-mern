@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 import dns from "dns";
 
-dns.setServers(["8.8.8.8", "1.1.1.1"]);
-
 export async function connectDB() {
   const uri = process.env.MONGODB_URI;
 
@@ -10,7 +8,10 @@ export async function connectDB() {
     throw new Error("MONGODB_URI is missing");
   }
 
-  await mongoose.connect(uri);
+  const dnsServers = process.env.DNS_SERVERS?.split(",").map(server => server.trim()).filter(Boolean);
+  if (dnsServers?.length) dns.setServers(dnsServers);
+
+  await mongoose.connect(uri, { serverSelectionTimeoutMS: 8000 });
 
   console.log("MongoDB connected");
 }

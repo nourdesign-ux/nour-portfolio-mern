@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nour Mastouri - Selected Portfolio</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #111; font-family: Arial, Helvetica, sans-serif; color: #111; }
+    .page { position: relative; width: 210mm; height: 297mm; overflow: hidden; page-break-after: always; background: #f1f0eb; }
+    .page:last-child { page-break-after: auto; }
+    .pad { padding: 18mm; }
+    .micro { font-size: 7pt; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .rule { border-top: .25mm solid currentColor; }
+    .cover { color: #111; }
+    .cover header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .cover header strong { font-size: 10pt; font-style: italic; }
+    .cover header span { text-align: right; line-height: 1.5; }
+    .cover h1 { position: relative; z-index: 2; margin: 30mm 0 0; font-size: 51pt; line-height: .78; letter-spacing: -.075em; font-style: italic; font-weight: 400; }
+    .cover h1 b { font-weight: 900; }
+    .cover .portrait { position: absolute; right: -31mm; bottom: -9mm; width: 170mm; height: 232mm; object-fit: contain; object-position: right bottom; filter: grayscale(1) contrast(1.05); }
+    .cover .tag { position: absolute; z-index: 2; left: 18mm; bottom: 17mm; font-size: 8pt; font-weight: 800; }
+    .profile { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm; }
+    .profile .intro { grid-column: 1 / -1; }
+    .profile h2 { margin: 28mm 0 8mm; font-size: 46pt; line-height: .8; letter-spacing: -.07em; }
+    .profile h2 em { font-weight: 400; }
+    .profile .lead { max-width: 150mm; margin: 0; font-size: 20pt; line-height: 1.05; letter-spacing: -.035em; }
+    .profile .services { margin-top: 25mm; }
+    .profile .services div { display: flex; justify-content: space-between; padding: 4mm 0; border-bottom: .25mm solid #aaa; font-size: 10pt; font-weight: 800; }
+    .profile .stats { align-self: end; display: grid; gap: 7mm; margin-bottom: 3mm; }
+    .profile .stats div { display: flex; align-items: end; gap: 4mm; }
+    .profile .stats b { font-size: 36pt; line-height: .75; letter-spacing: -.06em; }
+    .profile .stats span { font-size: 7pt; font-weight: 800; }
+    .case { background: #111; color: #fff; }
+    .case header { display: flex; justify-content: space-between; margin-bottom: 10mm; }
+    .case h2 { margin: 0 0 8mm; max-width: 175mm; font-size: 38pt; line-height: .82; letter-spacing: -.06em; font-style: italic; }
+    .case .hero-image { width: 174mm; height: 171mm; object-fit: cover; object-position: center; }
+    .case .copy { display: grid; grid-template-columns: 1.25fr .75fr; gap: 12mm; padding-top: 9mm; }
+    .case .copy p { margin: 0; font-size: 12pt; line-height: 1.28; }
+    .case .copy aside { font-size: 7.5pt; line-height: 1.65; text-transform: uppercase; }
+    .case-light { background: #f1f0eb; color: #111; }
+    .case-light .hero-image { height: 166mm; }
+    .contact-page { display: flex; flex-direction: column; justify-content: space-between; background: #111; color: #fff; }
+    .contact-page h2 { margin: 35mm 0 0; font-size: 54pt; line-height: .77; letter-spacing: -.08em; }
+    .contact-page h2 em { font-weight: 400; }
+    .contact-page .links { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; padding-top: 8mm; border-top: .25mm solid #666; font-size: 10pt; font-weight: 800; line-height: 1.8; }
+    .contact-page .name { font-size: 35pt; font-weight: 900; font-style: italic; letter-spacing: -.06em; }
+  </style>
+</head>
+<body>
+  <section class="page cover pad">
+    <header><strong>NOUR MASTOURI</strong><span class="micro">SELECTED PORTFOLIO<br>2024-2026</span></header>
+    <h1>Hello.<br><b>I’m Nour</b><br>Mastouri.</h1>
+    <img class="portrait" src="../../client/public/assets/nour-hero-transparent.png" alt="">
+    <div class="tag">GRAPHIC DESIGNER / ART DIRECTOR</div>
+  </section>
+
+  <section class="page profile pad">
+    <div class="intro">
+      <span class="micro">PROFILE / TUNISIA TO WORLDWIDE</span>
+      <h2>Ideas,<br><em>shaped</em><br>with intent.</h2>
+      <p class="lead">I create bold, coherent brand worlds built on clear thinking, expressive typography and purposeful art direction.</p>
+    </div>
+    <div class="services">
+      <div><span>01</span><span>BRAND IDENTITY</span></div>
+      <div><span>02</span><span>ART DIRECTION</span></div>
+      <div><span>03</span><span>SOCIAL MEDIA</span></div>
+      <div><span>04</span><span>PACKAGING</span></div>
+      <div><span>05</span><span>DIGITAL / UI</span></div>
+    </div>
+    <div class="stats">
+      <div><b>08+</b><span>YEARS OF<br>EXPERIENCE</span></div>
+      <div><b>25+</b><span>CLIENTS</span></div>
+      <div><b>100+</b><span>PROJECTS</span></div>
+    </div>
+  </section>
+
+  <section class="page case pad">
+    <header><span class="micro">01 / BRAND IDENTITY</span><span class="micro">2025</span></header>
+    <h2>LEADERS DIGITAL</h2>
+    <img class="hero-image" src="../../client/public/assets/projects/digital-agency/01.jpg" alt="">
+    <div class="copy"><p>Built to lead. Designed to connect. A bold, flexible identity for a digital agency moving forward.</p><aside>Brand strategy<br>Logo design<br>Visual identity<br>Art direction</aside></div>
+  </section>
+
+  <section class="page case case-light pad">
+    <header><span class="micro">02 / SOCIAL MEDIA</span><span class="micro">2024</span></header>
+    <h2>KURUBIS WINE</h2>
+    <img class="hero-image" src="../../client/public/assets/projects/wine-social/04.jpg" alt="">
+    <div class="copy"><p>A richer taste, made visual. A sensorial campaign connecting product storytelling, vineyard imagery and editorial typography.</p><aside>Art direction<br>Social media design<br>Advertising<br>Photo compositing</aside></div>
+  </section>
+
+  <section class="page case pad">
+    <header><span class="micro">03 / SPORTS DESIGN</span><span class="micro">2024</span></header>
+    <h2>UNITED ACADEMY</h2>
+    <img class="hero-image" src="../../client/public/assets/projects/sports-academy/02.jpg" alt="">
+    <div class="copy"><p>One team. One visual rhythm. A high-energy system connecting football and padel communications across digital and outdoor media.</p><aside>Art direction<br>Sports design<br>Social media<br>Advertising</aside></div>
+  </section>
+
+  <section class="page contact-page pad">
+    <div><span class="micro">AVAILABLE FOR SELECTED PROJECTS</span><h2>HAVE A VISION?<br><em>LET’S MAKE</em><br>IT REAL.</h2></div>
+    <div>
+      <div class="links"><div>nour@nour-mastouri.com<br>nour-mastouri.com</div><div>BEHANCE / NOURMASTOURI<br>LINKEDIN / NOUR-MASTOURI</div></div>
+      <p class="name">NOUR MASTOURI</p>
+    </div>
+  </section>
+</body>
+</html>

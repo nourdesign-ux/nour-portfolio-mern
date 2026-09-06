@@ -1,0 +1,880 @@
+﻿{
+    "version":  1,
+    "createdAt":  "2026-09-06T15:29:01.851Z",
+    "projects":  [
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9b4",
+                         "title":  "ESPIM",
+                         "slug":  "espim",
+                         "category":  "ART DIRECTION · CAMPAIGN",
+                         "year":  2026,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  true,
+                         "sortOrder":  1,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.534Z",
+                         "updatedAt":  "2026-09-05T15:43:36.534Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9b5",
+                         "title":  "FREMIGEL",
+                         "slug":  "fremigel",
+                         "category":  "PACKAGING SYSTEM",
+                         "year":  2026,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  true,
+                         "sortOrder":  2,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9b6",
+                         "title":  "LEADERS TV",
+                         "slug":  "leaders-tv",
+                         "category":  "BRAND IDENTITY · MOTION",
+                         "year":  2025,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  true,
+                         "sortOrder":  3,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9b7",
+                         "title":  "HEISENBERG",
+                         "slug":  "heisenberg",
+                         "category":  "BRAND CAMPAIGN · PRINT",
+                         "year":  2026,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  true,
+                         "sortOrder":  4,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9b8",
+                         "title":  "NOLYSS",
+                         "slug":  "nolyss",
+                         "category":  "BRAND IDENTITY",
+                         "year":  2025,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  false,
+                         "sortOrder":  5,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9b9",
+                         "title":  "AZALEA",
+                         "slug":  "azalea",
+                         "category":  "BRAND · DIGITAL",
+                         "year":  2025,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  false,
+                         "sortOrder":  6,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9ba",
+                         "title":  "EVENTCELLO",
+                         "slug":  "eventcello",
+                         "category":  "DIGITAL EXPERIENCE",
+                         "year":  2025,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  false,
+                         "sortOrder":  7,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     },
+                     {
+                         "_id":  "6a9c38a8242379ea10e3d9bb",
+                         "title":  "CLARENIA",
+                         "slug":  "clarenia",
+                         "category":  "PACKAGING · SOCIAL",
+                         "year":  2026,
+                         "description":  "",
+                         "services":  [
+
+                                      ],
+                         "cover":  "",
+                         "images":  [
+
+                                    ],
+                         "status":  "published",
+                         "featured":  false,
+                         "sortOrder":  8,
+                         "seoTitle":  "",
+                         "seoDescription":  "",
+                         "__v":  0,
+                         "createdAt":  "2026-09-05T15:43:36.535Z",
+                         "updatedAt":  "2026-09-05T15:43:36.535Z"
+                     }
+                 ],
+    "pages":  [
+                  {
+                      "_id":  "6a9c38a8242379ea10e3d9bd",
+                      "key":  "home",
+                      "title":  "Nour Mastouri",
+                      "eyebrow":  "BRANDING / ART DIRECTION / DIGITAL",
+                      "body":  "Senior Graphic Designer \u0026 Art Director — Tunisia / Worldwide",
+                      "ctaLabel":  "",
+                      "ctaUrl":  "",
+                      "metaTitle":  "",
+                      "metaDescription":  "",
+                      "__v":  1,
+                      "createdAt":  "2026-09-05T15:43:36.643Z",
+                      "updatedAt":  "2026-09-06T15:27:15.450Z",
+                      "blocks":  [
+                                     {
+                                         "id":  "home-hero",
+                                         "type":  "hero",
+                                         "label":  "Hero",
+                                         "content":  {
+                                                         "eyebrow":  "BRANDING / ART DIRECTION / DIGITAL",
+                                                         "title":  "Nour Mastouri",
+                                                         "body":  "Senior Graphic Designer \u0026 Art Director — Tunisia / Worldwide",
+                                                         "ctaLabel":  "",
+                                                         "ctaUrl":  ""
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  0
+                                     },
+                                     {
+                                         "id":  "home-text",
+                                         "type":  "text",
+                                         "label":  "Texte",
+                                         "content":  {
+                                                         "title":  "Nour Mastouri",
+                                                         "body":  "Senior Graphic Designer \u0026 Art Director — Tunisia / Worldwide"
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  1
+                                     },
+                                     {
+                                         "id":  "home-projects",
+                                         "type":  "projects",
+                                         "label":  "Projets",
+                                         "content":  {
+                                                         "title":  "Selected Work",
+                                                         "limit":  6
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  2
+                                     }
+                                 ],
+                      "translations":  {
+                                           "ar":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "en":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "fr":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  }
+                                       }
+                  },
+                  {
+                      "_id":  "6a9c38a8242379ea10e3d9be",
+                      "key":  "work",
+                      "title":  "Selected Work",
+                      "eyebrow":  "",
+                      "body":  "Brand identities, campaigns, packaging and digital experiences.",
+                      "ctaLabel":  "",
+                      "ctaUrl":  "",
+                      "metaTitle":  "",
+                      "metaDescription":  "",
+                      "__v":  1,
+                      "createdAt":  "2026-09-05T15:43:36.643Z",
+                      "updatedAt":  "2026-09-06T15:27:15.450Z",
+                      "blocks":  [
+                                     {
+                                         "id":  "work-hero",
+                                         "type":  "hero",
+                                         "label":  "Hero",
+                                         "content":  {
+                                                         "eyebrow":  "",
+                                                         "title":  "Selected Work",
+                                                         "body":  "Brand identities, campaigns, packaging and digital experiences.",
+                                                         "ctaLabel":  "",
+                                                         "ctaUrl":  ""
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  0
+                                     },
+                                     {
+                                         "id":  "work-text",
+                                         "type":  "text",
+                                         "label":  "Texte",
+                                         "content":  {
+                                                         "title":  "Selected Work",
+                                                         "body":  "Brand identities, campaigns, packaging and digital experiences."
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  1
+                                     },
+                                     {
+                                         "id":  "work-projects",
+                                         "type":  "projects",
+                                         "label":  "Projets",
+                                         "content":  {
+                                                         "title":  "Selected Work",
+                                                         "limit":  6
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  2
+                                     }
+                                 ],
+                      "translations":  {
+                                           "ar":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "en":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "fr":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  }
+                                       }
+                  },
+                  {
+                      "_id":  "6a9c38a8242379ea10e3d9bf",
+                      "key":  "about",
+                      "title":  "About",
+                      "eyebrow":  "",
+                      "body":  "Senior Graphic Designer and Art Director focused on strong visual systems and real brand impact.",
+                      "ctaLabel":  "",
+                      "ctaUrl":  "",
+                      "metaTitle":  "",
+                      "metaDescription":  "",
+                      "__v":  1,
+                      "createdAt":  "2026-09-05T15:43:36.644Z",
+                      "updatedAt":  "2026-09-06T15:27:15.450Z",
+                      "blocks":  [
+                                     {
+                                         "id":  "about-hero",
+                                         "type":  "hero",
+                                         "label":  "Hero",
+                                         "content":  {
+                                                         "eyebrow":  "",
+                                                         "title":  "About",
+                                                         "body":  "Senior Graphic Designer and Art Director focused on strong visual systems and real brand impact.",
+                                                         "ctaLabel":  "",
+                                                         "ctaUrl":  ""
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  0
+                                     },
+                                     {
+                                         "id":  "about-text",
+                                         "type":  "text",
+                                         "label":  "Texte",
+                                         "content":  {
+                                                         "title":  "About",
+                                                         "body":  "Senior Graphic Designer and Art Director focused on strong visual systems and real brand impact."
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  1
+                                     }
+                                 ],
+                      "translations":  {
+                                           "ar":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "en":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "fr":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  }
+                                       }
+                  },
+                  {
+                      "_id":  "6a9c38a8242379ea10e3d9c0",
+                      "key":  "expertise",
+                      "title":  "Expertise",
+                      "eyebrow":  "",
+                      "body":  "Branding · Art Direction · Packaging · Social Media · Print · Digital",
+                      "ctaLabel":  "",
+                      "ctaUrl":  "",
+                      "metaTitle":  "",
+                      "metaDescription":  "",
+                      "__v":  1,
+                      "createdAt":  "2026-09-05T15:43:36.644Z",
+                      "updatedAt":  "2026-09-06T15:27:15.450Z",
+                      "blocks":  [
+                                     {
+                                         "id":  "expertise-hero",
+                                         "type":  "hero",
+                                         "label":  "Hero",
+                                         "content":  {
+                                                         "eyebrow":  "",
+                                                         "title":  "Expertise",
+                                                         "body":  "Branding · Art Direction · Packaging · Social Media · Print · Digital",
+                                                         "ctaLabel":  "",
+                                                         "ctaUrl":  ""
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  0
+                                     },
+                                     {
+                                         "id":  "expertise-text",
+                                         "type":  "text",
+                                         "label":  "Texte",
+                                         "content":  {
+                                                         "title":  "Expertise",
+                                                         "body":  "Branding · Art Direction · Packaging · Social Media · Print · Digital"
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  1
+                                     }
+                                 ],
+                      "translations":  {
+                                           "ar":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "en":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "fr":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  }
+                                       }
+                  },
+                  {
+                      "_id":  "6a9c38a8242379ea10e3d9c1",
+                      "key":  "contact",
+                      "title":  "Let’s work together",
+                      "eyebrow":  "",
+                      "body":  "Available for selected freelance and art direction projects.",
+                      "ctaLabel":  "",
+                      "ctaUrl":  "",
+                      "metaTitle":  "",
+                      "metaDescription":  "",
+                      "__v":  1,
+                      "createdAt":  "2026-09-05T15:43:36.644Z",
+                      "updatedAt":  "2026-09-06T15:27:15.450Z",
+                      "blocks":  [
+                                     {
+                                         "id":  "contact-hero",
+                                         "type":  "hero",
+                                         "label":  "Hero",
+                                         "content":  {
+                                                         "eyebrow":  "",
+                                                         "title":  "Let’s work together",
+                                                         "body":  "Available for selected freelance and art direction projects.",
+                                                         "ctaLabel":  "",
+                                                         "ctaUrl":  ""
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  0
+                                     },
+                                     {
+                                         "id":  "contact-text",
+                                         "type":  "text",
+                                         "label":  "Texte",
+                                         "content":  {
+                                                         "title":  "Let’s work together",
+                                                         "body":  "Available for selected freelance and art direction projects."
+                                                     },
+                                         "visible":  true,
+                                         "sortOrder":  1
+                                     }
+                                 ],
+                      "translations":  {
+                                           "ar":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "en":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  },
+                                           "fr":  {
+                                                      "title":  "",
+                                                      "eyebrow":  "",
+                                                      "body":  "",
+                                                      "ctaLabel":  "",
+                                                      "metaTitle":  "",
+                                                      "metaDescription":  ""
+                                                  }
+                                       }
+                  }
+              ],
+    "media":  [
+                  {
+                      "_id":  "6a9d866b66ce4ce4dc48122e",
+                      "filename":  "assets/nour-hero-transparent.png",
+                      "originalName":  "nour-hero-transparent.png",
+                      "url":  "/assets/nour-hero-transparent.png",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  3156459,
+                      "createdAt":  "2026-09-06T15:27:39.372Z",
+                      "updatedAt":  "2026-09-06T15:27:39.372Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866b66ce4ce4dc481231",
+                      "filename":  "assets/nour-mastouri.webp",
+                      "originalName":  "nour-mastouri.webp",
+                      "url":  "/assets/nour-mastouri.webp",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  65434,
+                      "createdAt":  "2026-09-06T15:27:39.541Z",
+                      "updatedAt":  "2026-09-06T15:27:39.541Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866b66ce4ce4dc481234",
+                      "filename":  "assets/projects/digital-agency/01.jpg",
+                      "originalName":  "01.jpg",
+                      "url":  "/assets/projects/digital-agency/01.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  99848,
+                      "createdAt":  "2026-09-06T15:27:39.711Z",
+                      "updatedAt":  "2026-09-06T15:27:39.711Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866b66ce4ce4dc481237",
+                      "filename":  "assets/projects/digital-agency/02.jpg",
+                      "originalName":  "02.jpg",
+                      "url":  "/assets/projects/digital-agency/02.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  68102,
+                      "createdAt":  "2026-09-06T15:27:39.909Z",
+                      "updatedAt":  "2026-09-06T15:27:39.909Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866c66ce4ce4dc48123a",
+                      "filename":  "assets/projects/digital-agency/03.jpg",
+                      "originalName":  "03.jpg",
+                      "url":  "/assets/projects/digital-agency/03.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  16694,
+                      "createdAt":  "2026-09-06T15:27:40.076Z",
+                      "updatedAt":  "2026-09-06T15:27:40.076Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866c66ce4ce4dc48123d",
+                      "filename":  "assets/projects/digital-agency/04.jpg",
+                      "originalName":  "04.jpg",
+                      "url":  "/assets/projects/digital-agency/04.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  33310,
+                      "createdAt":  "2026-09-06T15:27:40.292Z",
+                      "updatedAt":  "2026-09-06T15:27:40.292Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866c66ce4ce4dc481240",
+                      "filename":  "assets/projects/digital-agency/05.jpg",
+                      "originalName":  "05.jpg",
+                      "url":  "/assets/projects/digital-agency/05.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  231380,
+                      "createdAt":  "2026-09-06T15:27:40.456Z",
+                      "updatedAt":  "2026-09-06T15:27:40.456Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866c66ce4ce4dc481243",
+                      "filename":  "assets/projects/digital-agency/06.jpg",
+                      "originalName":  "06.jpg",
+                      "url":  "/assets/projects/digital-agency/06.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  148154,
+                      "createdAt":  "2026-09-06T15:27:40.659Z",
+                      "updatedAt":  "2026-09-06T15:27:40.659Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866c66ce4ce4dc481246",
+                      "filename":  "assets/projects/digital-agency/07.jpg",
+                      "originalName":  "07.jpg",
+                      "url":  "/assets/projects/digital-agency/07.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  183982,
+                      "createdAt":  "2026-09-06T15:27:40.827Z",
+                      "updatedAt":  "2026-09-06T15:27:40.827Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866c66ce4ce4dc481249",
+                      "filename":  "assets/projects/digital-agency/08.jpg",
+                      "originalName":  "08.jpg",
+                      "url":  "/assets/projects/digital-agency/08.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  125030,
+                      "createdAt":  "2026-09-06T15:27:40.994Z",
+                      "updatedAt":  "2026-09-06T15:27:40.994Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866d66ce4ce4dc48124c",
+                      "filename":  "assets/projects/digital-agency/09.jpg",
+                      "originalName":  "09.jpg",
+                      "url":  "/assets/projects/digital-agency/09.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  82398,
+                      "createdAt":  "2026-09-06T15:27:41.160Z",
+                      "updatedAt":  "2026-09-06T15:27:41.160Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866d66ce4ce4dc48124f",
+                      "filename":  "assets/projects/digital-agency/10.jpg",
+                      "originalName":  "10.jpg",
+                      "url":  "/assets/projects/digital-agency/10.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  277252,
+                      "createdAt":  "2026-09-06T15:27:41.324Z",
+                      "updatedAt":  "2026-09-06T15:27:41.324Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866d66ce4ce4dc481252",
+                      "filename":  "assets/projects/digital-agency/11.jpg",
+                      "originalName":  "11.jpg",
+                      "url":  "/assets/projects/digital-agency/11.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  73650,
+                      "createdAt":  "2026-09-06T15:27:41.493Z",
+                      "updatedAt":  "2026-09-06T15:27:41.493Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866d66ce4ce4dc481255",
+                      "filename":  "assets/projects/sports-academy/01.jpg",
+                      "originalName":  "01.jpg",
+                      "url":  "/assets/projects/sports-academy/01.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  232788,
+                      "createdAt":  "2026-09-06T15:27:41.671Z",
+                      "updatedAt":  "2026-09-06T15:27:41.671Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866d66ce4ce4dc481258",
+                      "filename":  "assets/projects/sports-academy/02.jpg",
+                      "originalName":  "02.jpg",
+                      "url":  "/assets/projects/sports-academy/02.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  505784,
+                      "createdAt":  "2026-09-06T15:27:41.867Z",
+                      "updatedAt":  "2026-09-06T15:27:41.867Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866e66ce4ce4dc48125b",
+                      "filename":  "assets/projects/sports-academy/03.jpg",
+                      "originalName":  "03.jpg",
+                      "url":  "/assets/projects/sports-academy/03.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  419240,
+                      "createdAt":  "2026-09-06T15:27:42.030Z",
+                      "updatedAt":  "2026-09-06T15:27:42.030Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866e66ce4ce4dc48125e",
+                      "filename":  "assets/projects/sports-academy/04.jpg",
+                      "originalName":  "04.jpg",
+                      "url":  "/assets/projects/sports-academy/04.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  487394,
+                      "createdAt":  "2026-09-06T15:27:42.196Z",
+                      "updatedAt":  "2026-09-06T15:27:42.196Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866e66ce4ce4dc481261",
+                      "filename":  "assets/projects/sports-academy/05.jpg",
+                      "originalName":  "05.jpg",
+                      "url":  "/assets/projects/sports-academy/05.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  74308,
+                      "createdAt":  "2026-09-06T15:27:42.375Z",
+                      "updatedAt":  "2026-09-06T15:27:42.375Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866e66ce4ce4dc481264",
+                      "filename":  "assets/projects/wine-social/01.jpg",
+                      "originalName":  "01.jpg",
+                      "url":  "/assets/projects/wine-social/01.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  373302,
+                      "createdAt":  "2026-09-06T15:27:42.564Z",
+                      "updatedAt":  "2026-09-06T15:27:42.564Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866e66ce4ce4dc481267",
+                      "filename":  "assets/projects/wine-social/02.jpg",
+                      "originalName":  "02.jpg",
+                      "url":  "/assets/projects/wine-social/02.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  185926,
+                      "createdAt":  "2026-09-06T15:27:42.732Z",
+                      "updatedAt":  "2026-09-06T15:27:42.732Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866e66ce4ce4dc48126a",
+                      "filename":  "assets/projects/wine-social/03.jpg",
+                      "originalName":  "03.jpg",
+                      "url":  "/assets/projects/wine-social/03.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  515144,
+                      "createdAt":  "2026-09-06T15:27:42.903Z",
+                      "updatedAt":  "2026-09-06T15:27:42.903Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866f66ce4ce4dc48126d",
+                      "filename":  "assets/projects/wine-social/04.jpg",
+                      "originalName":  "04.jpg",
+                      "url":  "/assets/projects/wine-social/04.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  933588,
+                      "createdAt":  "2026-09-06T15:27:43.079Z",
+                      "updatedAt":  "2026-09-06T15:27:43.079Z",
+                      "__v":  0
+                  },
+                  {
+                      "_id":  "6a9d866f66ce4ce4dc481270",
+                      "filename":  "assets/projects/wine-social/05.jpg",
+                      "originalName":  "05.jpg",
+                      "url":  "/assets/projects/wine-social/05.jpg",
+                      "alt":  "",
+                      "mimeType":  "image/*",
+                      "size":  116038,
+                      "createdAt":  "2026-09-06T15:27:43.245Z",
+                      "updatedAt":  "2026-09-06T15:27:43.245Z",
+                      "__v":  0
+                  }
+              ],
+    "settings":  {
+                     "_id":  "6a9d86031709a76ea9f9753a",
+                     "key":  "main",
+                     "__v":  0,
+                     "createdAt":  "2026-09-06T15:25:53.296Z",
+                     "customCss":  "",
+                     "footer":  "",
+                     "logoText":  "NOUR.",
+                     "menu":  [
+                                  {
+                                      "label":  "Work",
+                                      "url":  "#work",
+                                      "visible":  true,
+                                      "sortOrder":  0
+                                  },
+                                  {
+                                      "label":  "About",
+                                      "url":  "#about",
+                                      "visible":  true,
+                                      "sortOrder":  1
+                                  },
+                                  {
+                                      "label":  "Contact",
+                                      "url":  "#contact",
+                                      "visible":  true,
+                                      "sortOrder":  2
+                                  }
+                              ],
+                     "profile":  {
+                                     "avatar":  "",
+                                     "bio":  "",
+                                     "email":  "",
+                                     "name":  "Nour Mastouri",
+                                     "role":  "Senior Graphic Designer \u0026 Art Director"
+                                 },
+                     "seo":  {
+                                 "description":  "",
+                                 "image":  "",
+                                 "keywords":  "",
+                                 "title":  ""
+                             },
+                     "siteDescription":  "",
+                     "siteTitle":  "Nour Mastouri",
+                     "theme":  {
+                                   "accent":  "#d9ff43",
+                                   "background":  "#eeeae3",
+                                   "fontBody":  "Arial",
+                                   "fontHeading":  "Arial",
+                                   "foreground":  "#11110f",
+                                   "panel":  "#f7f5f0"
+                               },
+                     "updatedAt":  "2026-09-06T15:28:37.316Z"
+                 }
+}
